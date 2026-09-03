@@ -145,6 +145,7 @@ export function presentThrone(): void {
   setDoorOpen(false);
   if (e.token) e.token.classList.remove('is-entering');
   placeHeroAtEntrance();
+  resetWorldScroll();
   resetTorchScroll();
   e.content.innerHTML =
     '<span class="room-content-icon icon-king"></span>' +

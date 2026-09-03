@@ -30,9 +30,6 @@ export async function runRaid(): Promise<void> {
   runtime.raidInProgress = true;
   renderAll();
 
-  var status = document.getElementById('raid-status');
-  if (status) status.textContent = 'Raid berlangsung...';
-
   var stageDiff = getRaidDiff();
 
   var hero = takePendingHero();
@@ -140,8 +137,6 @@ export async function runRaid(): Promise<void> {
   clearPendingHero();
 
   applyRaidOutcome(hero, { dungeonWin, heroEscape, heroVictory }, goldReward, soulsReward, stageDiff);
-
-  if (status) status.textContent = 'Raid selesai';
 
   runtime.raidInProgress = false;
   saveState();

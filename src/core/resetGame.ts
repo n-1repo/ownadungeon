@@ -10,8 +10,5 @@ export function resetGame(): void {
   clearPendingHero();
   renderAll();
 
-  var status = document.getElementById('raid-status');
-  if (status) status.textContent = '';
-
   showToast('Game reset to the beginning', 'warning');
 }

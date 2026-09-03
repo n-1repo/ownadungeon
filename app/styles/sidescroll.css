@@ -84,8 +84,8 @@
 .monster-token {
   position: absolute;
   z-index: 90;
-  width: 36px;
-  height: 36px;
+  width: 128px;
+  height: 128px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,10 +114,14 @@
   border: 2px solid var(--muted-dim);
   background: var(--panel-raised);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.35);
-  font-size: 18px;
+  font-size: 64px;
 }
 
 .monster-token-face.has-sprite {
+  border: none;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
   font-size: 0;
   background-repeat: no-repeat;
   background-position: 0 0;
@@ -125,11 +129,6 @@
 }
 
 @media (max-width: 400px) {
-  .monster-token {
-    width: 28px;
-    height: 28px;
-  }
-
   .room-door {
     width: 18px;
     height: 38px;

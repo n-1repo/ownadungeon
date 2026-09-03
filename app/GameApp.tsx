@@ -125,10 +125,6 @@ export default function GameApp() {
             </div>
             <div id="dungeon-slots" className="dungeon-slots"></div>
           </div>
-
-          <div className="stage-controls">
-            <span id="raid-status" className="raid-status"></span>
-          </div>
         </section>
       </main>
 

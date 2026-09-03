@@ -2,6 +2,7 @@ import type { Hero, MonsterDef, RaidDifficulty } from '../types';
 import type { BeatKey } from '../animation/beatTiming';
 import { checkPanic, triggerDeath, triggerFear, triggerFlee, triggerPain, triggerSurprise, tryTriggerRage } from './hero';
 import { triggerHeroAttackAnim } from '../animation/heroToken';
+import { triggerMonsterAttackAnim, triggerMonsterHurtAnim, triggerMonsterDeathAnim } from '../animation/monsterToken';
 import { applySpecialOnMonsterHit, heroMonsterMult } from '../data/matchups';
 import { flashSlot } from '../ui/dungeonSlots';
 import { updateBattleCard } from '../ui/roomPreview';
@@ -82,12 +83,15 @@ export async function resolveMonsterEncounter(
     triggerHeroAttackAnim(hero);
 
     if (mHp <= 0) {
+      triggerMonsterDeathAnim(monCat.id);
       flashSlot(slotEl, 'cleared');
       goldReward += 10 + level * 4;
       break;
     }
+    triggerMonsterHurtAnim(monCat.id);
 
     if (!(hero.evasion && Math.random() < hero.evasion)) {
+      triggerMonsterAttackAnim(monCat.id);
       var mDmg = Math.max(1, monAtk - hero.def);
       if (hero.damageReduction) mDmg = Math.round(mDmg * (1 - hero.damageReduction));
       hero.hp -= mDmg;

@@ -160,7 +160,6 @@
 .toast--success { border-color: var(--accent-blue); }
 .toast--warning { border-color: var(--ember); }
 @media (max-width: 640px) {
-  .side-panel { width: 100%; max-width: 100%; }
   .toast-container { bottom: 14px; }
 }
 @media (prefers-reduced-motion: reduce) {

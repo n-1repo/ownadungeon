@@ -3,17 +3,6 @@
   display: none !important;
 }
 
-.app.battle-active .stage-controls {
-  min-height: 0;
-  margin: 0;
-}
-
-.app.battle-active .raid-status {
-  font-size: 11px;
-  text-align: center;
-  width: 100%;
-}
-
 .app.battle-active .panel.stage-panel {
   padding: 0;
   gap: 0;
@@ -105,10 +94,6 @@
 
 .app.battle-active {
   padding-bottom: env(safe-area-inset-bottom, 0px);
-}
-
-.app.battle-active .stage-controls {
-  display: none;
 }
 
 .app.battle-active .room-depth {

@@ -108,7 +108,7 @@
 .dungeon-slot.throne-room {
   border-color: var(--accent-purple-bright);
   box-shadow: 0 0 0 1px rgba(143, 111, 199, 0.35) inset;
-  min-width: 88px;
+  min-width: 72px;
 }
 
 .dungeon-slot.throne-room .slot-sub {
@@ -204,22 +204,6 @@
   background-repeat: no-repeat;
   background-size: 96px 96px;
   image-rendering: pixelated;
-  animation: room-torch-flicker 0.72s steps(1, end) infinite;
-}
-
-@keyframes room-torch-flicker {
-  0%    { background-position: 0 0; }
-  12.5% { background-position: -24px 0; }
-  25%   { background-position: -48px 0; }
-  37.5% { background-position: -72px 0; }
-  50%   { background-position: 0 -48px; }
-  62.5% { background-position: -24px -48px; }
-  75%   { background-position: -48px -48px; }
-  87.5% { background-position: -72px -48px; }
-}
-
-.room-torch:nth-of-type(2) .room-torch-flame {
-  animation-delay: -0.36s;
 }
 
 @media (max-width: 400px) {
@@ -232,17 +216,6 @@
     width: 80px;
     height: 80px;
     background-size: 80px 80px;
-  }
-
-  @keyframes room-torch-flicker {
-    0%    { background-position: 0 0; }
-    12.5% { background-position: -20px 0; }
-    25%   { background-position: -40px 0; }
-    37.5% { background-position: -60px 0; }
-    50%   { background-position: 0 -40px; }
-    62.5% { background-position: -20px -40px; }
-    75%   { background-position: -40px -40px; }
-    87.5% { background-position: -60px -40px; }
   }
 }
 

@@ -81,6 +81,13 @@
   animation: none;
 }
 
+.hero-token-face.has-sprite {
+  font-size: 0;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  image-rendering: pixelated;
+}
+
 @keyframes token-rage-pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }

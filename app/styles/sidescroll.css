@@ -9,13 +9,13 @@
 .room-content {
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 10%;
   transform: translate(-50%, -50%);
   transition: left 0.4s ease, top 0.4s ease;
 }
 
 .room-content.has-sprite {
-  top: 22%;
+  top: 6%;
 }
 
 .room-door {
@@ -47,8 +47,8 @@
 .hero-token {
   position: absolute;
   z-index: 100;
-  width: 32px;
-  height: 32px;
+  width: 128px;
+  height: 128px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,7 +125,6 @@
 }
 
 @media (max-width: 400px) {
-  .hero-token,
   .monster-token {
     width: 28px;
     height: 28px;

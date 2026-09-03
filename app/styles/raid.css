@@ -50,8 +50,8 @@
 }
 
 .hero-token-face {
-  width: 32px;
-  height: 32px;
+  width: 128px;
+  height: 128px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,8 +59,19 @@
   border: 2px solid var(--accent-blue-bright);
   background: var(--panel-raised);
   box-shadow: 0 0 12px rgba(111, 160, 245, 0.35);
-  font-size: 16px;
+  font-size: 64px;
   overflow: hidden;
+}
+
+.hero-token-face.has-sprite {
+  border: none;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  font-size: 0;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  image-rendering: pixelated;
 }
 
 .hero-token.is-panic .hero-token-face {
@@ -79,13 +90,6 @@
   filter: grayscale(0.4);
   opacity: 0.8;
   animation: none;
-}
-
-.hero-token-face.has-sprite {
-  font-size: 0;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  image-rendering: pixelated;
 }
 
 @keyframes token-rage-pulse {
@@ -141,7 +145,7 @@
 .room-chamber {
   position: relative;
   flex: 1;
-  min-height: 160px;
+  min-height: 220px;
   border: 1px solid var(--border-bright);
   border-radius: var(--radius);
 

@@ -66,6 +66,7 @@ export async function resolveKingFight(
     var hDmg = Math.max(1, Math.round((hero.atk - kDef) * timingMult));
     kHp -= hDmg;
     triggerHeroAttackAnim(hero);
+    await waitBeat('actionGap');
 
     if (kHp <= 0) {
       flashSlot(throneEl, 'cleared');

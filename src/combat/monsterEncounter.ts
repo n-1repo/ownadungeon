@@ -81,6 +81,7 @@ export async function resolveMonsterEncounter(
     var hDmg = Math.max(1, hit.dmg);
     mHp -= hDmg;
     triggerHeroAttackAnim(hero);
+    await waitBeat('actionGap');
 
     if (mHp <= 0) {
       triggerMonsterDeathAnim(monCat.id);

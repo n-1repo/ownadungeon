@@ -125,6 +125,12 @@
 .btn-danger:hover:not(:disabled) {
   border-color: var(--ember-bright); background: rgba(209, 72, 63, 0.24); filter: none;
 }
+.settings-reset-btn.is-rebirth {
+  border-color: var(--gold); color: var(--gold); background: rgba(224, 178, 74, 0.14);
+}
+.settings-reset-btn.is-rebirth:hover:not(:disabled) {
+  border-color: var(--gold); background: rgba(224, 178, 74, 0.24); filter: none;
+}
 .modal-overlay {
   position: absolute; inset: 0; z-index: 300; display: flex; align-items: center;
   justify-content: center; padding: 16px; background: rgba(0, 0, 0, 0.7);

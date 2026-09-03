@@ -46,5 +46,6 @@ export const DEFAULT_STATE: GameState = {
   maxStageCleared: 0,
   arcadeWave: 1,
   arcadeBest: 0,
-  lastActive: Date.now()
+  lastActive: Date.now(),
+  rebirths: 0
 };

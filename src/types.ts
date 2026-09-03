@@ -186,6 +186,7 @@ export interface GameState {
   arcadeWave: number;
   arcadeBest: number;
   lastActive: number;
+  rebirths: number;
 }
 
 export interface SelectedPaletteItem {

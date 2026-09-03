@@ -1,10 +1,10 @@
 import { saveState } from './src/state/gameState';
 import { runtime } from './src/state/runtimeState';
 import { simulateOfflineProgress } from './src/core/offlineProgress';
-import { resetGame } from './src/core/resetGame';
+import { resetGame, rebirthGame } from './src/core/resetGame';
 import { runRaid } from './src/combat/raid';
 import { renderAll } from './src/ui/renderBus';
-import { setGameMode } from './src/ui/hud';
+import { setGameMode, isRebirthUnlocked } from './src/ui/hud';
 import { initOverlayControls } from './src/ui/overlays';
 import { showOfflineModal } from './src/ui/offlineModal';
 import { showToast } from './src/ui/toast';
@@ -52,7 +52,8 @@ export function startGame(): void {
   if (btnResetConfirm) {
     btnResetConfirm.addEventListener('click', function () {
       closeResetModal();
-      resetGame();
+      if (isRebirthUnlocked()) rebirthGame();
+      else resetGame();
     });
   }
   if (resetModal) {

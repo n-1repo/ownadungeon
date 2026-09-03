@@ -1,6 +1,7 @@
 import { state } from '../state/gameState';
 import { getKingStats } from '../data/king';
 import { STAGE_MAX } from '../data/difficulty';
+import { rebirthRewardMult } from '../economy/economy';
 
 export function renderStats(): void {
   var wrap = document.getElementById('stats-list');
@@ -27,7 +28,10 @@ export function renderStats(): void {
     ['Total Raid', s.raidsTotal],
     ['Dungeon Menang', s.dungeonWins],
     ['Hero Kabur', s.heroEscapes],
-    ['Hero Menang', s.heroVictories]
+    ['Hero Menang', s.heroVictories],
+    ['— Rebirth —', ''],
+    ['Rebirths', state.rebirths || 0],
+    ['Bonus Gold & Souls', '+' + Math.round((rebirthRewardMult(state.rebirths || 0) - 1) * 100) + '%']
   ];
   wrap.innerHTML = rows
     .map(function (r) {

@@ -252,7 +252,7 @@ export default function GameApp() {
         <div className="modal" role="dialog" aria-modal="true" aria-labelledby="reset-modal-title">
           <h2 id="reset-modal-title" className="modal-title">Reset Game?</h2>
           <div className="modal-body">
-            <p>All progress will be wiped: gold, souls, upgrades, unlocks, dungeon layout, and stats. This cannot be undone.</p>
+            <p id="reset-modal-body">All progress will be wiped: gold, souls, upgrades, unlocks, dungeon layout, and stats. This cannot be undone.</p>
           </div>
           <div className="modal-actions">
             <button id="btn-reset-cancel" className="btn" type="button">Cancel</button>

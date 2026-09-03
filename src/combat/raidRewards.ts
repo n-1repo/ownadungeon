@@ -1,6 +1,7 @@
 import type { Hero, RaidDifficulty } from '../types';
 import { state } from '../state/gameState';
 import { STAGE_MAX } from '../data/difficulty';
+import { rebirthRewardMult } from '../economy/economy';
 
 export interface RaidOutcome {
   dungeonWin: boolean;
@@ -55,6 +56,12 @@ export function applyRaidOutcome(
     if (soulsReward > 0) {
       soulsReward = Math.max(1, Math.round(soulsReward * Math.min(2.5, 1 + (stageDiff.rewardMult - 1) * 0.5)));
     }
+  }
+
+  if (state.rebirths) {
+    var rMult = rebirthRewardMult(state.rebirths);
+    goldReward = Math.round(goldReward * rMult);
+    if (soulsReward > 0) soulsReward = Math.round(soulsReward * rMult);
   }
 
   state.gold += goldReward;

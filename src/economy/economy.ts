@@ -31,6 +31,10 @@ export function upgradeCost(baseCost: number, level: number): number {
   return Math.round(baseCost * Math.pow(1.5, level - 1));
 }
 
+export function rebirthRewardMult(rebirths: number): number {
+  return 1 + Math.min(rebirths, 10) * 0.05;
+}
+
 export function tryUpgradeKing(): boolean {
   if (!state.king) state.king = { level: 1 };
   var level = state.king.level || 1;

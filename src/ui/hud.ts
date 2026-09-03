@@ -69,6 +69,29 @@ export function renderModeStage(): void {
   }
 }
 
+export function isRebirthUnlocked(): boolean {
+  return (state.maxStageCleared || 0) >= STAGE_MAX;
+}
+
+export function renderRebirthButton(): void {
+  var unlocked = isRebirthUnlocked();
+  var btn = document.getElementById('btn-reset-game');
+  var confirmBtn = document.getElementById('btn-reset-confirm');
+  var title = document.getElementById('reset-modal-title');
+  var body = document.getElementById('reset-modal-body');
+  if (btn) {
+    btn.textContent = unlocked ? 'Rebirth' : 'Reset game';
+    btn.classList.toggle('is-rebirth', unlocked);
+  }
+  if (confirmBtn) confirmBtn.textContent = unlocked ? 'Yes, Rebirth' : 'Yes, Reset';
+  if (title) title.textContent = unlocked ? 'Rebirth?' : 'Reset Game?';
+  if (body) {
+    body.textContent = unlocked
+      ? 'Wipes gold, souls, upgrades, unlocks, dungeon layout, and stats — but grants a permanent gold & soul bonus that stacks with every rebirth. Cannot be undone.'
+      : 'All progress will be wiped: gold, souls, upgrades, unlocks, dungeon layout, and stats. This cannot be undone.';
+  }
+}
+
 export function setGameMode(mode: GameMode): void {
   if (runtime.raidInProgress) {
     showToast('Wait for the raid to finish', 'warning');
@@ -85,6 +108,7 @@ export function setGameMode(mode: GameMode): void {
 export function renderAll(): void {
   renderCurrencies();
   renderModeStage();
+  renderRebirthButton();
   renderPalette();
   renderDungeonSlots();
   renderUpgrades();

@@ -3,6 +3,7 @@ import type { BeatKey } from '../animation/beatTiming';
 import { state } from '../state/gameState';
 import { getKingStats } from '../data/king';
 import { checkPanic, triggerDeath, triggerPain, triggerSurprise, tryTriggerRage } from './hero';
+import { triggerHeroAttackAnim } from '../animation/heroToken';
 import { flashSlot } from '../ui/dungeonSlots';
 import { updateBattleCard } from '../ui/roomPreview';
 
@@ -64,6 +65,7 @@ export async function resolveKingFight(
     }
     var hDmg = Math.max(1, Math.round((hero.atk - kDef) * timingMult));
     kHp -= hDmg;
+    triggerHeroAttackAnim(hero);
 
     if (kHp <= 0) {
       flashSlot(throneEl, 'cleared');

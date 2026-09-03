@@ -4,6 +4,7 @@ import { HERO_ARCHETYPES, NAME_POOL } from '../data/heroes';
 import { getStageDef } from '../data/stages';
 import { getRaidDiff } from './difficultyResolver';
 import { setBattleReaction, syncBattleCardVisual } from '../ui/battleReaction';
+import { triggerHeroHurtAnim } from '../animation/heroToken';
 import { isUnlocked } from '../economy/economy';
 import type { Hero, ReactionKind } from '../types';
 
@@ -134,6 +135,7 @@ export function triggerPain(hero: Hero): void {
   if (!hero || hero.hp <= 0) return;
   if (hero.visualState === 'dead' || hero.visualState === 'flee') return;
   setBattleReaction('SAKIT!', 'pain');
+  triggerHeroHurtAnim(hero);
 }
 
 export function triggerSurprise(hero: Hero): void {

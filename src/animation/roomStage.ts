@@ -7,7 +7,7 @@ import { showMonsterToken, hideMonsterToken, playMonsterWalkFlourish } from './m
 import { beatMs, type BeatKey } from './beatTiming';
 import { resetWorldScroll, resetTorchScroll } from './worldScroll';
 import { entityIconHtml } from '../ui/entityIcon';
-import type { DungeonSlotData } from '../types';
+import type { DungeonSlotData, Hero } from '../types';
 
 interface StageEls {
   runway: HTMLElement | null;
@@ -154,19 +154,19 @@ export function presentThrone(): void {
   hideMonsterToken();
 }
 
-export function heroEnterRoom(): void {
+export function heroEnterRoom(hero: Hero): void {
   var e = els();
   if (e.token) e.token.classList.add('is-entering');
   if (e.chamber) e.chamber.classList.add('hero-inside');
-  walkHeroToEncounter();
+  walkHeroToEncounter(hero);
   playMonsterWalkFlourish(beatMs('arriveRoom'));
 }
 
-export async function playDoorEnterSequence(waitBeat: (key: BeatKey) => Promise<void>): Promise<void> {
+export async function playDoorEnterSequence(waitBeat: (key: BeatKey) => Promise<void>, hero: Hero): Promise<void> {
   setDoorOpen(false);
   await waitBeat('doorClosed');
   setDoorOpen(true);
   await waitBeat('doorOpen');
-  heroEnterRoom();
+  heroEnterRoom(hero);
   await waitBeat('arriveRoom');
 }

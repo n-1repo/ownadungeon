@@ -1,6 +1,7 @@
 import type { Hero, MonsterDef, RaidDifficulty } from '../types';
 import type { BeatKey } from '../animation/beatTiming';
 import { checkPanic, triggerDeath, triggerFear, triggerFlee, triggerPain, triggerSurprise, tryTriggerRage } from './hero';
+import { triggerHeroAttackAnim } from '../animation/heroToken';
 import { applySpecialOnMonsterHit, heroMonsterMult } from '../data/matchups';
 import { flashSlot } from '../ui/dungeonSlots';
 import { updateBattleCard } from '../ui/roomPreview';
@@ -78,6 +79,7 @@ export async function resolveMonsterEncounter(
     var hit = applySpecialOnMonsterHit(hero, monCat, Math.round(raw * mMult * timingMult));
     var hDmg = Math.max(1, hit.dmg);
     mHp -= hDmg;
+    triggerHeroAttackAnim(hero);
 
     if (mHp <= 0) {
       flashSlot(slotEl, 'cleared');

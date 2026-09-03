@@ -65,11 +65,11 @@ export async function runRaid(): Promise<void> {
     }
 
     presentRoom(i, slot);
-    await playDoorEnterSequence(waitBeat);
+    await playDoorEnterSequence(waitBeat, hero);
 
     if (!slot) {
       await waitBeat('resolve');
-      walkHeroToExit();
+      walkHeroToExit(hero);
       continue;
     }
 
@@ -104,7 +104,7 @@ export async function runRaid(): Promise<void> {
     }
 
     if (slotEl) slotEl.classList.add('raid-cleared');
-    walkHeroToExit();
+    walkHeroToExit(hero);
     await waitBeat('betweenRooms');
   }
 
@@ -118,7 +118,7 @@ export async function runRaid(): Promise<void> {
     }
 
     presentThrone();
-    await playDoorEnterSequence(waitBeat);
+    await playDoorEnterSequence(waitBeat, hero);
 
     var kingResult = await resolveKingFight(hero, stageDiff, waitBeat, throneEl);
     goldReward += kingResult.goldReward;
@@ -127,7 +127,7 @@ export async function runRaid(): Promise<void> {
     if (kingResult.heroDied) {
       dungeonWin = true;
     } else {
-      walkHeroToExit();
+      walkHeroToExit(hero);
     }
   }
 

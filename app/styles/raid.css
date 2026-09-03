@@ -177,7 +177,8 @@
   z-index: 5;
   width: 24px;
   height: 48px;
-  transform: translate(-50%, 0);
+  transform: translate(calc(-50% + var(--torch-scroll, 0px)), 0);
+  transition: transform 0.5s ease;
   pointer-events: none;
   overflow: hidden;
   filter: drop-shadow(0 0 6px rgba(240, 106, 82, 0.5));

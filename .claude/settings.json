@@ -1,0 +1,14 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"UserPromptSubmit\",\"additionalContext\":\"Apply the token-efficiency skill: trim filler, avoid redundant tool calls and re-reads, and keep responses, reasoning, and tool use minimal without losing accuracy.\"}}'"
+          }
+        ]
+      }
+    ]
+  }
+}

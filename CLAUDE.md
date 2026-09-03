@@ -64,6 +64,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 - Do not write code comments. Write plain code only.
 - After finishing a task, respond with a short summary — only the critical info, nothing else.
+- Commit and push directly to `main`. Do not create branches.
 
 ---
 
